@@ -1,70 +1,28 @@
 import React, {Component} from 'react';
+import {inject, observer, Provider} from 'mobx-react';
 import ReactDOM from 'react-dom';
+import BaseStore from './stores/BaseStore.js';
+import Inventory from './components/inventory/inventory';
+import Cart from './components/cart/cart';
 
-import Foo from './components/Foo';
-import './myStyles.scss';
-
-class App extends Component {
-  state = {
-    CaptainKirkBio: {},
-  };
-
-  componentDidMount() {
-    this.onGetKirkBio();
-  }
-
-  onGetKirkBio = async () => {
-    try {
-      const result = await fetch(
-        'http://stapi.co/api/v1/rest/character/search',
-        {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/x-www-form-urlencoded',
-          },
-          body: {
-            title: 'James T. Kirk',
-            name: 'James T. Kirk',
-          },
-        },
-      );
-      const resultJSON = await result.json();
-      const character = resultJSON.characters[0];
-      this.setState({CaptainKirkBio: character});
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+@inject('store')
+@observer
+class Aap extends Component {
   render() {
-    const {CaptainKirkBio} = this.state;
     return (
-      <div className="app">
-        <img
-          className="app__header"
-          src="/dist/images/header.jpg"
-          alt="header"
-        />
-        <p>
-          Adipisicing voluptate possimus maiores quibusdam quas. Sunt asperiores
-          fugiat quidem minus consectetur consectetur! Molestias inventore
-          aperiam voluptate soluta nobis Explicabo eos accusamus praesentium
-          illo esse voluptate? Numquam officia animi pariatur.
-        </p>
-        <Foo />
-        <p>El puerco marranon</p>
-        <section>
-          {Object.values(CaptainKirkBio).length === 0 ? (
-            <p>Loading user info...</p>
-          ) : (
-            <p style={{wordBreak: 'break-all'}}>
-              {JSON.stringify(CaptainKirkBio)}
-            </p>
-          )}
-        </section>
+      <div>
+        <h1>Inventory</h1>
+        <Inventory />
+        <h1>Cart</h1>
+        <Cart />
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <Provider store={new BaseStore()}>
+    <Aap />
+  </Provider>,
+  document.getElementById('app'),
+);
