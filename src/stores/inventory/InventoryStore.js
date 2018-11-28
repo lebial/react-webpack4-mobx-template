@@ -21,9 +21,9 @@ class InventoryStore {
   };
 
   @action.bound
-  addToInventory = (name, quantity) => {
+  addToInventory = (name, quantity, price) => {
     const index = findItem(this.inventory, name);
-    addItem(this.inventory, name, index, quantity);
+    addItem(this.inventory, name, index, quantity, price);
   };
 
 }

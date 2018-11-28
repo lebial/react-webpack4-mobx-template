@@ -19,7 +19,7 @@ class Inventory extends Component {
         price={item.price}
         value="add to cart"
       />
-    ));
+  ));
 
     return (
       <Fragment>

@@ -8,7 +8,7 @@ import Item from '../ItemList/item/item';
 @observer
 class Cart extends Component {
   render() {
-    const {cart} = this.props.store.cartStore;
+    const {cart, cartTotal} = this.props.store.cartStore;
     const { remove } = this.props.store;
     const cartItems = cart.map((item, idx) => (
       <Item
@@ -16,6 +16,7 @@ class Cart extends Component {
         removeItem={ remove }
         name={item.name}
         quantity={item.quantity}
+        price={item.price}
         value="remove from cart"
       />
     ));
@@ -23,6 +24,7 @@ class Cart extends Component {
     return (
       <Fragment>
         <ItemList>{cartItems}</ItemList>
+        <p>your total is {cartTotal}</p>
       </Fragment>
     );
   }

@@ -9,6 +9,7 @@ class AddInventoryForm extends Component {
   state = {
     productName: '',
     quantity: 0,
+    price: 0,
   };
 
   handleChange = (e, option) => {
@@ -17,15 +18,15 @@ class AddInventoryForm extends Component {
 
   handleSubmit = e => {
     const {addToInventory} = this.props.store.inventoryStore;
-    const {productName, quantity} = this.state;
+    const {productName, quantity, price} = this.state;
     e.preventDefault();
-    if (quantity > 0) addToInventory(productName, quantity);
-    this.setState({productName: '', quantity: 0});
+    if (quantity > 0) addToInventory(productName, quantity, price);
+    this.setState({productName: '', quantity: 0, price: 0});
   };
 
   render() {
     const {addToInventory} = this.props.store.inventoryStore;
-    const {productName, quantity} = this.state;
+    const {productName, quantity, price} = this.state;
     return (
       <Fragment>
         <form onSubmit={this.handleSubmit}>
@@ -43,7 +44,14 @@ class AddInventoryForm extends Component {
             value={quantity}
             handler={this.handleChange}
           />
-          <FormInput type="submit" value="submit" handler={this.handleChange} />
+          <label>Price</label>
+          <FormInput
+            type="text"
+            name="price"
+            value={price}
+            handler={this.handleChange}
+          />
+          <FormInput type="submit" value="submit" />
         </form>
       </Fragment>
     );

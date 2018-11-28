@@ -15,9 +15,9 @@ export const removeItem = (arr, index, quantity) => {
   } else return false;
 };
 
-export const addItem = (arr, name, index, quantity) => {
+export const addItem = (arr, name, index, quantity, price) => {
   quantity = Number(quantity);
   if (index !== -1) {
     arr[index].quantity += quantity;
-  } else arr.push({name: name, quantity: quantity});
+  } else arr.push({name, quantity, price});
 };
