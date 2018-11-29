@@ -1,21 +1,25 @@
-import React, {Component} from 'react';
-import {inject, observer, Provider} from 'mobx-react';
+import React, {Fragment, Component} from 'react';
 import ReactDOM from 'react-dom';
+import {inject, observer, Provider} from 'mobx-react';
 import BaseStore from './stores/BaseStore.js';
+
 import Inventory from './components/inventory/inventory';
 import Cart from './components/cart/cart';
+import './index.scss';
 
 @inject('store')
 @observer
 class Aap extends Component {
   render() {
     return (
-      <div>
-        <h1>Inventory</h1>
+      <Fragment>
+        <div className="header">
+          <p>Add To Inventory</p>
+        </div>
         <Inventory />
         <h1>Cart</h1>
         <Cart />
-      </div>
+      </Fragment>
     );
   }
 }

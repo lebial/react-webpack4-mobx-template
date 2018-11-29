@@ -1,7 +1,8 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import {inject, observer} from 'mobx-react';
 
 import FormInput from './formInput/FormInput';
+import './form.scss';
 
 @inject('store')
 @observer
@@ -28,8 +29,7 @@ class AddInventoryForm extends Component {
     const {addToInventory} = this.props.store.inventoryStore;
     const {productName, quantity, price} = this.state;
     return (
-      <Fragment>
-        <form onSubmit={this.handleSubmit}>
+        <form className="addInventory__form" onSubmit={this.handleSubmit}>
           <label>Product Name</label>
           <FormInput
             type="text"
@@ -53,7 +53,6 @@ class AddInventoryForm extends Component {
           />
           <FormInput type="submit" value="submit" />
         </form>
-      </Fragment>
     );
   }
 }

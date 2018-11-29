@@ -1,5 +1,6 @@
 import React from 'react';
 import {observer} from 'mobx-react';
+import './FormInput.scss';
 
 const FormInput = observer(function({type, name, value, handler}) {
   const handleInput = e => handler(e, name);

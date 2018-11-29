@@ -1,0 +1,29 @@
+@mixin shadow {
+-webkit-box-shadow: 2px 6px 7px -4px rgba(0,0,0,0.58);
+-moz-box-shadow: 2px 6px 7px -4px rgba(0,0,0,0.58);
+box-shadow: 2px 6px 7px -4px rgba(0,0,0,0.58)
+}
+.addInventory__form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+    background-color: dimgray;
+    height: 13rem;
+    Margin: 2rem 2.5vw 0 2.5vw ;
+    color: cornsilk;
+    @include shadow;
+
+  & input[type="text"]{
+    border-bottom: grey solid .2rem ;
+    background-color: dimgray;
+    color: cornsilk;;
+  }
+
+  & input[type="submit"]{
+    height: 4rem;
+    background-color: limegreen;
+    color: white;
+    @include shadow;
+  }
+}

@@ -3,6 +3,7 @@ import {observer, inject} from 'mobx-react';
 import ItemList from '../ItemList/ItemList';
 import Item from '../ItemList/item/item';
 import AddInventoryForm from '../AddInventoryForm/form';
+import './inventory.scss'
 
 @inject('store')
 @observer
@@ -22,10 +23,11 @@ class Inventory extends Component {
   ));
 
     return (
-      <Fragment>
-        <AddInventoryForm />
+      <div className="inventory">
+          <AddInventoryForm />
+          <p>Inventory</p>
         <ItemList>{inventoryItems}</ItemList>
-      </Fragment>
+      </div>
     );
   }
 }
