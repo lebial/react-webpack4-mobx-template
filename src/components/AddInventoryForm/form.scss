@@ -3,16 +3,26 @@
 -moz-box-shadow: 2px 6px 7px -4px rgba(0,0,0,0.58);
 box-shadow: 2px 6px 7px -4px rgba(0,0,0,0.58)
 }
+
 .addInventory__form{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     font-size: 2rem;
+    display: flex;
+    justify-content: center;
     background-color: dimgray;
     height: 13rem;
-    Margin: 2rem 2.5vw 0 2.5vw ;
+    Margin: 2rem 2.5vw 2rem 2.5vw ;
     color: cornsilk;
     @include shadow;
+    & form{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+
+      & > * {
+        margin: 0 2rem;
+      }
+    }
 
   & input[type="text"]{
     border-bottom: grey solid .2rem ;

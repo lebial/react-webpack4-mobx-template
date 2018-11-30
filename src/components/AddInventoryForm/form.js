@@ -29,30 +29,40 @@ class AddInventoryForm extends Component {
     const {addToInventory} = this.props.store.inventoryStore;
     const {productName, quantity, price} = this.state;
     return (
-        <form className="addInventory__form" onSubmit={this.handleSubmit}>
-          <label>Product Name</label>
-          <FormInput
-            type="text"
-            name="productName"
-            value={productName}
-            handler={this.handleChange}
-          />
-          <label>Quantity</label>
-          <FormInput
-            type="text"
-            name="quantity"
-            value={quantity}
-            handler={this.handleChange}
-          />
-          <label>Price</label>
-          <FormInput
-            type="text"
-            name="price"
-            value={price}
-            handler={this.handleChange}
-          />
-          <FormInput type="submit" value="submit" />
+      <div class="addInventory__form">
+        <form onSubmit={this.handleSubmit}>
+          <span>
+            <label>Product Name:</label>
+            <FormInput
+              type="text"
+              name="productName"
+              value={productName}
+              handler={this.handleChange}
+            />
+          </span>
+          <span>
+            <label>Quantity:</label>
+            <FormInput
+              type="text"
+              name="quantity"
+              value={quantity}
+              handler={this.handleChange}
+            />
+          </span>
+          <span>
+            <label>Price:</label>
+            <FormInput
+              type="text"
+              name="price"
+              value={price}
+              handler={this.handleChange}
+            />
+          </span>
+          <span>
+            <FormInput type="submit" value="submit" />
+          </span>
         </form>
+      </div>
     );
   }
 }

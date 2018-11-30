@@ -23,11 +23,15 @@ class Inventory extends Component {
   ));
 
     return (
-      <div className="inventory">
-          <AddInventoryForm />
-          <p>Inventory</p>
-        <ItemList>{inventoryItems}</ItemList>
-      </div>
+      <Fragment >
+        <AddInventoryForm />
+        <div className="inventory__container">
+          <div className="inventory__title">
+            <p>Inventory</p>
+          </div>
+          <ItemList>{inventoryItems}</ItemList>
+        </div>
+      </Fragment>
     );
   }
 }

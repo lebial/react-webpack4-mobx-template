@@ -1,10 +1,11 @@
 import React from 'react';
+import './ItemList.scss';
 
 function ItemList({ children }){
   return(
-    <ul className="itemList__body">
+    <div className="itemList__container">
       { children }
-    </ul>
+    </div>
   );
 }
 
