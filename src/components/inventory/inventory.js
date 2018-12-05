@@ -2,8 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {observer, inject} from 'mobx-react';
 import ItemList from '../ItemList/ItemList';
 import Item from '../ItemList/item/item';
-import AddInventoryForm from '../AddInventoryForm/form';
-import './inventory.scss'
+import './inventory.scss';
 
 @inject('store')
 @observer
@@ -11,6 +10,8 @@ class Inventory extends Component {
   render() {
     const {inventory} = this.props.store.inventoryStore;
     const {addToCart} = this.props.store;
+    const {openModal} = this.props;
+
     const inventoryItems = inventory.map((item, idx) => (
       <Item
         key={idx}
@@ -19,12 +20,12 @@ class Inventory extends Component {
         quantity={item.quantity}
         price={item.price}
         value="add to cart"
+        modalOpen={openModal}
       />
-  ));
+    ));
 
     return (
-      <Fragment >
-        <AddInventoryForm />
+      <Fragment>
         <div className="inventory__container">
           <div className="inventory__title">
             <p>Inventory</p>

@@ -29,7 +29,7 @@ class AddInventoryForm extends Component {
     const {addToInventory} = this.props.store.inventoryStore;
     const {productName, quantity, price} = this.state;
     return (
-      <div class="addInventory__form">
+      <div className="addInventory__form">
         <form onSubmit={this.handleSubmit}>
           <span>
             <label>Product Name:</label>

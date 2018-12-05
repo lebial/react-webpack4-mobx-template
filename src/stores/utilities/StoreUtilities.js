@@ -21,3 +21,15 @@ export const addItem = (arr, name, index, quantity, price) => {
     arr[index].quantity += quantity;
   } else arr.push({name, quantity, price});
 };
+
+export const calculateTotal = (store, calculateTotal = true) => {
+  let count = 0;
+  for (let i = 0; i < store.length; i++) {
+    if (calculateTotal) {
+      count += store[i].price * store[i].quantity;
+    } else {
+      count += store[i].quantity;
+    }
+  }
+  return count;
+};

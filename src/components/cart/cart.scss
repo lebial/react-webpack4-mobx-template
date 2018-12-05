@@ -1,0 +1,45 @@
+@import '../../scss/_variables.scss';
+.cart-item {
+  &__container {
+    background-color: dimgrey;
+    margin: 0 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    @include shadow;
+    &:hover .cart-item__button--remove {
+      opacity: 1;
+    }
+  }
+  &__details {
+    justify-content: space-around;
+    color: cornsilk;
+    width: 50%;
+    font-size: 2rem;
+    text-align: left;
+    margin: 1rem 0;
+  }
+  &__button--remove {
+    background-color: red;
+    color: cornsilk;
+    font-size: 2rem;
+    padding: 1rem;
+    opacity: 0;
+    border-radius: 40rem;
+    @include shadow;
+    transition: all ease 0.4s;
+    &:hover {
+      transform: translateY(-0.3rem);
+      cursor: pointer;
+    }
+  }
+}
+
+.cart__total {
+  text-align: right;
+  margin: 2rem 0;
+  padding-right: 3rem;
+  font-size: 3rem;
+}

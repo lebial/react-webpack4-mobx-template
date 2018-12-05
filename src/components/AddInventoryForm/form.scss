@@ -1,8 +1,4 @@
-@mixin shadow {
--webkit-box-shadow: 2px 6px 7px -4px rgba(0,0,0,0.58);
--moz-box-shadow: 2px 6px 7px -4px rgba(0,0,0,0.58);
-box-shadow: 2px 6px 7px -4px rgba(0,0,0,0.58)
-}
+@import '../../scss/_variables.scss';
 
 .addInventory__form{
     font-size: 2rem;
@@ -35,5 +31,10 @@ box-shadow: 2px 6px 7px -4px rgba(0,0,0,0.58)
     background-color: limegreen;
     color: white;
     @include shadow;
+    transition: all .5s ease;
+    &:hover{
+      cursor: pointer;
+      transform: translateY(-.5rem);
+    }
   }
 }
