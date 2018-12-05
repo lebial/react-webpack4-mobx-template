@@ -1,0 +1,75 @@
+@import '../../scss/_variables.scss';
+
+.modal{
+  &__overlay{
+    position: fixed;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.6);
+  }
+
+  &__container{
+    @include shadow;
+    position: relative;
+    display: flex;
+    margin-top: 15vh;
+    background-color: lightgrey;
+    width: 70vw;
+    z-index: 90;
+
+    &__button__container{
+      width: 100%;
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__button--close{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      font-size: 2rem;
+      background-color: orangered;
+      height: 3rem;
+      border-radius: 20rem;
+      color: white;
+      top: -4rem;
+      padding: 1rem;
+      transition: all .5s ease;
+      &:hover{
+        cursor: pointer;
+        transform: translateY(-.4rem);
+      }
+    }
+  }
+
+  &__body{
+    height: 75vh;
+    overflow: hidden;
+    &__title{
+      width: 70vw;
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 4rem;
+    }
+    &__content{
+      display: flex;
+      justify-content: center;
+      & > div{
+        @include shadow;
+        position: absolute;
+        width: 85%;
+        height: 80%;
+        overflow: auto;
+        background-color: snow;
+        border-radius: .5rem;
+      }
+    }
+  }
+}
